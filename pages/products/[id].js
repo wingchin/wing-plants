@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
-import Card from '../../components/card'
+import Layout, { siteTitle} from '../../components/layout'
 import { getAllProductIds, getProductData } from '../../lib/products'
 
 export async function getStaticPaths() {
@@ -26,19 +25,18 @@ export default function Product({ productData }) {
   return (
     <Layout>
       <Head>
-        <title>{productData.title}</title>
+        <title>{productData.title} | {siteTitle}</title>
       </Head>
-      <article>
-          <div className="container mx-auto flex px-5 md:flex-row flex-col items-center">
-          <div className="bg-white rounded-lg overflow-hidden shadow-md w-1/2">
-            <img className="object-cover object-center" src={`/uploads/${productData.id}.png`} alt={productData.title} />
+      <article className="my-8">
+        <div className="md:flex">
+          <div className="md:w-1/2">
+            <img className="w-full bg-white rounded-lg overflow-hidden shadow-md" src={`/uploads/${productData.id}.png`} alt={productData.title} />
           </div>
-          <div className="w-1/2 pl-12 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font text-4xl font-bold">{productData.title}
-            </h1>
-            <h3 className="text-2xl font-semibold mb-8">&euro; {productData.price}</h3>
-            <p className="mb-8 leading-relaxed">{productData.description}</p>
-            <button className="snipcart-add-item inline-flex font-semibold bg-orange-200 border-0 py-2 px-6 focus:outline-none hover:bg-orange-300 rounded text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>In winkelwagen <span className="pl-3">🛒</span></button>
+          <div className="md:w-1/2 md:pl-12 pt-8 sm:pt-0 text-left">
+            <h1 className="text-4xl font-extrabold">{productData.title}</h1>
+            <p className="text-2xl font-light mb-8">&euro; {productData.price}</p>
+            <p className="mb-8">{productData.description}</p>
+            <button className="snipcart-add-item bg-orange-200 hover:bg-orange-300 font-semibold py-2 px-6 rounded-lg text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>In winkelwagen <span className="pl-2">🛒</span></button>
           </div>
         </div>
       </article>

@@ -11,10 +11,10 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={siteDescription} />
       </Head>
-      <header className="py-5 bg-white">
+      <header className="py-5 bg-orange-200">
         <nav className="flex justify-between items-center mx-auto max-w-screen-xl px-4">
           <Link href="/" className="text-xl font-extrabold whitespace-nowrap">{siteTitle}</Link>
-          <Link href="/" className="snipcart-checkout text-sm font-semibold">Winkelwagen <span className="pl-2">🛒</span></Link>
+          <Link href="/" className="snipcart-checkout bg-orange-300 hover:bg-orange-400 py-1 px-2 rounded-lg text-sm font-semibold">Winkelwagen <span className="pl-1">🛒</span></Link>
         </nav>
       </header>
 

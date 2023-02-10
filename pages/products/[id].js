@@ -35,8 +35,8 @@ export default function Product({ productData }) {
           <div className="md:w-1/2 md:pl-12 pt-8 sm:pt-0 text-left">
             <h1 className="text-4xl font-extrabold">{productData.title}</h1>
             <p className="text-2xl font-light mb-8">&euro; {productData.price}</p>
-            <p className="mb-8">{productData.description}</p>
-            <button className="snipcart-add-item bg-orange-200 hover:bg-orange-300 font-semibold py-2 px-6 rounded-lg text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>In winkelwagen <span className="pl-2">🛒</span></button>
+            <p className="text-sm mb-8">{productData.description}</p>
+            <button className="snipcart-add-item bg-orange-300 hover:bg-orange-400 font-semibold py-2 px-6 rounded-lg text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>In winkelwagen <span className="pl-2">🛒</span></button>
           </div>
         </div>
       </article>

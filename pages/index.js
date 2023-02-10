@@ -25,17 +25,13 @@ export default function Home({ allProductData }) {
       <section className="my-8">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {allProductData.map(({ id, title, price }) => (
-            <div key={id}>
-              <Link href="/products/[id]" as={`/products/${id}`}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                  <img className="w-full" src={`/uploads/${id}.png`} alt={title} />
-                  <div className="px-6 py-5">
-                    <h2 className="font-extrabold mb-2">{title}</h2>
-                    <p className="font-light">&euro; {price}</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <Link key={id} href="/products/[id]" as={`/products/${id}`} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl">
+              <img className="w-full" src={`/uploads/${id}.png`} alt={title} />
+              <div className="px-6 py-5">
+                <h2 className="font-extrabold">{title}</h2>
+                <p className="font-light">&euro; {price}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

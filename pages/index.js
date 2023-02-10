@@ -2,18 +2,18 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle, siteDescription } from '../components/layout'
 import Card from '../components/card'
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedProductData } from '../lib/products'
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allProductData = getSortedProductData()
   return {
     props: {
-      allPostsData
+      allProductData
     }
   }
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allProductData }) {
   return (
     <Layout home>
       <Head>
@@ -24,9 +24,9 @@ export default function Home({ allPostsData }) {
       </section>
       <section>
         <div className="grid md:grid-cols-3 gap-6">
-          {allPostsData.map(({ id, title, price }) => (
+          {allProductData.map(({ id, title, price }) => (
             <div key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
+              <Link href="/products/[id]" as={`/products/${id}`}>
                 <Card grid id={id} title={title} price={price} />
               </Link>
             </div>

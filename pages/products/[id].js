@@ -25,7 +25,7 @@ export default function Product({ productData }) {
   return (
     <Layout>
       <Head>
-        <title>{productData.title} | {siteTitle}</title>
+        <title>{`${productData.title} | ${siteTitle}`}</title>
       </Head>
       <article className="my-8">
         <div className="md:flex">
@@ -36,7 +36,10 @@ export default function Product({ productData }) {
             <h1 className="text-4xl font-extrabold">{productData.title}</h1>
             <p className="text-2xl font-light mb-8">&euro; {productData.price}</p>
             <p className="text-sm mb-8">{productData.description}</p>
-            <button className="snipcart-add-item bg-orange-300 hover:bg-orange-400 font-semibold py-2 px-6 rounded-lg text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>In winkelwagen <span className="pl-2">🛒</span></button>
+            <button className="snipcart-add-item bg-orange-300 hover:bg-orange-400 font-semibold py-2 px-6 rounded-lg text-lg" data-item-id={productData.id} data-item-price={productData.price} data-item-image={`/uploads/${productData.id}.png`} data-item-name={productData.title}>
+              In winkelwagen
+              <span className="pl-3">🛒</span>
+            </button>
           </div>
         </div>
       </article>
